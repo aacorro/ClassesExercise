@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace ClassesExercise
 {
@@ -6,13 +8,33 @@ namespace ClassesExercise
     {
         static void Main(string[] args)
         {
-            var car = new Car();
-            car.Make = "Toyota";
-            car.Model = "Solara";
-            car.Year = 2005;
 
-            Console.WriteLine($"My car is a {car.Year} {car.Make} {car.Model}");
+            Car car1 = new Car();
+            car1.Make = "Toyota";
+            car1.Model = "Solara";
+            car1.Year = 2005;
 
+            Car car2 = new Car()
+            {
+                Make = "Honda",
+                Model = "Civic",
+                Year = 2008
+            };
+
+            Car car3 = new Car( "Chevy", "Silverado", 2010 );
+
+
+            var inventory = new List<Car>() { car1, car2, car3 };
+            {
+                foreach (var car in inventory)
+                {
+                    Console.WriteLine($"{car.Make} {car.Model} {car.Year}");
+                }
+
+            }
+                 
+
+            
         }
     }
 }
